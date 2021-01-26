@@ -1104,7 +1104,7 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 							doit = true;
 						}
 						else if ( x < models[c]->sizex - 1 )
-							if ( models[c]->data[index + indexdown[0]] >= 0 && models[c]->data[index + indexdown[0]] < 255 )
+							if ( models[c]->data[index + indexdown[0]] < 255 )
 							{
 								doit = true;
 							}
@@ -1250,7 +1250,7 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 							doit = true;
 						}
 						else if ( x > 0 )
-							if ( models[c]->data[index - indexdown[0]] >= 0 && models[c]->data[index - indexdown[0]] < 255 )
+							if ( models[c]->data[index - indexdown[0]] < 255 )
 							{
 								doit = true;
 							}
@@ -1396,7 +1396,7 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 							doit = true;
 						}
 						else if ( y < models[c]->sizey - 1 )
-							if ( models[c]->data[index + indexdown[1]] >= 0 && models[c]->data[index + indexdown[1]] < 255 )
+							if ( models[c]->data[index + indexdown[1]] < 255 )
 							{
 								doit = true;
 							}
@@ -1541,7 +1541,7 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 							doit = true;
 						}
 						else if ( y > 0 )
-							if ( models[c]->data[index - indexdown[1]] >= 0 && models[c]->data[index - indexdown[1]] < 255 )
+							if ( models[c]->data[index - indexdown[1]] < 255 )
 							{
 								doit = true;
 							}
@@ -1686,7 +1686,7 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 							doit = true;
 						}
 						else if ( z < models[c]->sizez - 1 )
-							if ( models[c]->data[index + indexdown[2]] >= 0 && models[c]->data[index + indexdown[2]] < 255 )
+							if ( models[c]->data[index + indexdown[2]] < 255 )
 							{
 								doit = true;
 							}
@@ -1832,7 +1832,7 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 							doit = true;
 						}
 						else if ( z > 0 )
-							if ( models[c]->data[index - indexdown[2]] >= 0 && models[c]->data[index - indexdown[2]] < 255 )
+							if ( models[c]->data[index - indexdown[2]] < 255 )
 							{
 								doit = true;
 							}
