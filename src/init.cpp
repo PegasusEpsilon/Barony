@@ -1107,12 +1107,12 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 
 							node_t* currentNode = quads.last;
 							quad1 = (polyquad_t*)currentNode->element;
-							quad1->vertex[1].x = x - model->sizex / 2.f + 1;
-							quad1->vertex[1].y = y - model->sizey / 2.f;
-							quad1->vertex[1].z = z - model->sizez / 2.f - 1;
-							quad1->vertex[2].x = x - model->sizex / 2.f + 1;
-							quad1->vertex[2].y = y - model->sizey / 2.f;
-							quad1->vertex[2].z = z - model->sizez / 2.f;
+							quad1->vertex[1].x = (float)x - (float)model->sizex / 2.f + 1;
+							quad1->vertex[1].y = (float)y - (float)model->sizey / 2.f;
+							quad1->vertex[1].z = (float)z - (float)model->sizez / 2.f - 1;
+							quad1->vertex[2].x = (float)x - (float)model->sizex / 2.f + 1;
+							quad1->vertex[2].y = (float)y - (float)model->sizey / 2.f;
+							quad1->vertex[2].z = (float)z - (float)model->sizez / 2.f;
 
 							// optimize quad
 							node_t* node = quads.first;
@@ -1153,12 +1153,12 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 
 								quad1 = (polyquad_t*) calloc(1, sizeof(polyquad_t));
 								quad1->side = 0;
-								quad1->vertex[0].x = x - model->sizex / 2.f + 1;
-								quad1->vertex[0].y = y - model->sizey / 2.f;
-								quad1->vertex[0].z = z - model->sizez / 2.f - 1;
-								quad1->vertex[3].x = x - model->sizex / 2.f + 1;
-								quad1->vertex[3].y = y - model->sizey / 2.f;
-								quad1->vertex[3].z = z - model->sizez / 2.f;
+								quad1->vertex[0].x = (float)x - (float)model->sizex / 2.f + 1;
+								quad1->vertex[0].y = (float)y - (float)model->sizey / 2.f;
+								quad1->vertex[0].z = (float)z - (float)model->sizez / 2.f - 1;
+								quad1->vertex[3].x = (float)x - (float)model->sizex / 2.f + 1;
+								quad1->vertex[3].y = (float)y - (float)model->sizey / 2.f;
+								quad1->vertex[3].z = (float)z - (float)model->sizez / 2.f;
 								quad1->r = models[c]->palette[models[c]->data[index]][0];
 								quad1->g = models[c]->palette[models[c]->data[index]][1];
 								quad1->b = models[c]->palette[models[c]->data[index]][2];
@@ -1179,12 +1179,12 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 
 					node_t* currentNode = quads.last;
 					quad1 = (polyquad_t*)currentNode->element;
-					quad1->vertex[1].x = x - model->sizex / 2.f + 1;
-					quad1->vertex[1].y = y - model->sizey / 2.f;
-					quad1->vertex[1].z = z - model->sizez / 2.f - 1;
-					quad1->vertex[2].x = x - model->sizex / 2.f + 1;
-					quad1->vertex[2].y = y - model->sizey / 2.f;
-					quad1->vertex[2].z = z - model->sizez / 2.f;
+					quad1->vertex[1].x = (float)x - (float)model->sizex / 2.f + 1;
+					quad1->vertex[1].y = (float)y - (float)model->sizey / 2.f;
+					quad1->vertex[1].z = (float)z - (float)model->sizez / 2.f - 1;
+					quad1->vertex[2].x = (float)x - (float)model->sizex / 2.f + 1;
+					quad1->vertex[2].y = (float)y - (float)model->sizey / 2.f;
+					quad1->vertex[2].z = (float)z - (float)model->sizez / 2.f;
 
 					// optimize quad
 					node_t* node = quads.first;
@@ -1235,12 +1235,12 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 
 							node_t* currentNode = quads.last;
 							quad1 = (polyquad_t*)currentNode->element;
-							quad1->vertex[1].x = x - model->sizex / 2.f;
-							quad1->vertex[1].y = y - model->sizey / 2.f;
-							quad1->vertex[1].z = z - model->sizez / 2.f;
-							quad1->vertex[2].x = x - model->sizex / 2.f;
-							quad1->vertex[2].y = y - model->sizey / 2.f;
-							quad1->vertex[2].z = z - model->sizez / 2.f - 1;
+							quad1->vertex[1].x = (float)x - (float)model->sizex / 2.f;
+							quad1->vertex[1].y = (float)y - (float)model->sizey / 2.f;
+							quad1->vertex[1].z = (float)z - (float)model->sizez / 2.f;
+							quad1->vertex[2].x = (float)x - (float)model->sizex / 2.f;
+							quad1->vertex[2].y = (float)y - (float)model->sizey / 2.f;
+							quad1->vertex[2].z = (float)z - (float)model->sizez / 2.f - 1;
 
 							// optimize quad
 							node_t* node = quads.first;
@@ -1281,12 +1281,12 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 
 								quad1 = (polyquad_t*) calloc(1, sizeof(polyquad_t));
 								quad1->side = 1;
-								quad1->vertex[0].x = x - model->sizex / 2.f;
-								quad1->vertex[0].y = y - model->sizey / 2.f;
-								quad1->vertex[0].z = z - model->sizez / 2.f;
-								quad1->vertex[3].x = x - model->sizex / 2.f;
-								quad1->vertex[3].y = y - model->sizey / 2.f;
-								quad1->vertex[3].z = z - model->sizez / 2.f - 1;
+								quad1->vertex[0].x = (float)x - (float)model->sizex / 2.f;
+								quad1->vertex[0].y = (float)y - (float)model->sizey / 2.f;
+								quad1->vertex[0].z = (float)z - (float)model->sizez / 2.f;
+								quad1->vertex[3].x = (float)x - (float)model->sizex / 2.f;
+								quad1->vertex[3].y = (float)y - (float)model->sizey / 2.f;
+								quad1->vertex[3].z = (float)z - (float)model->sizez / 2.f - 1;
 								quad1->r = models[c]->palette[models[c]->data[index]][0];
 								quad1->g = models[c]->palette[models[c]->data[index]][1];
 								quad1->b = models[c]->palette[models[c]->data[index]][2];
@@ -1307,12 +1307,12 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 
 					node_t* currentNode = quads.last;
 					quad1 = (polyquad_t*)currentNode->element;
-					quad1->vertex[1].x = x - model->sizex / 2.f;
-					quad1->vertex[1].y = y - model->sizey / 2.f;
-					quad1->vertex[1].z = z - model->sizez / 2.f;
-					quad1->vertex[2].x = x - model->sizex / 2.f;
-					quad1->vertex[2].y = y - model->sizey / 2.f;
-					quad1->vertex[2].z = z - model->sizez / 2.f - 1;
+					quad1->vertex[1].x = (float)x - (float)model->sizex / 2.f;
+					quad1->vertex[1].y = (float)y - (float)model->sizey / 2.f;
+					quad1->vertex[1].z = (float)z - (float)model->sizez / 2.f;
+					quad1->vertex[2].x = (float)x - (float)model->sizex / 2.f;
+					quad1->vertex[2].y = (float)y - (float)model->sizey / 2.f;
+					quad1->vertex[2].z = (float)z - (float)model->sizez / 2.f - 1;
 
 					// optimize quad
 					node_t* node = quads.first;
@@ -1364,12 +1364,12 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 
 							node_t* currentNode = quads.last;
 							quad1 = (polyquad_t*) currentNode->element;
-							quad1->vertex[1].x = x - model->sizex / 2.f;
-							quad1->vertex[1].y = y - model->sizey / 2.f + 1;
-							quad1->vertex[1].z = z - model->sizez / 2.f;
-							quad1->vertex[2].x = x - model->sizex / 2.f;
-							quad1->vertex[2].y = y - model->sizey / 2.f + 1;
-							quad1->vertex[2].z = z - model->sizez / 2.f - 1;
+							quad1->vertex[1].x = (float)x - (float)model->sizex / 2.f;
+							quad1->vertex[1].y = (float)y - (float)model->sizey / 2.f + 1;
+							quad1->vertex[1].z = (float)z - (float)model->sizez / 2.f;
+							quad1->vertex[2].x = (float)x - (float)model->sizex / 2.f;
+							quad1->vertex[2].y = (float)y - (float)model->sizey / 2.f + 1;
+							quad1->vertex[2].z = (float)z - (float)model->sizez / 2.f - 1;
 
 							// optimize quad
 							node_t* node = quads.first;
@@ -1410,12 +1410,12 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 
 								quad1 = (polyquad_t*) calloc(1, sizeof(polyquad_t));
 								quad1->side = 2;
-								quad1->vertex[0].x = x - model->sizex / 2.f;
-								quad1->vertex[0].y = y - model->sizey / 2.f + 1;
-								quad1->vertex[0].z = z - model->sizez / 2.f;
-								quad1->vertex[3].x = x - model->sizex / 2.f;
-								quad1->vertex[3].y = y - model->sizey / 2.f + 1;
-								quad1->vertex[3].z = z - model->sizez / 2.f - 1;
+								quad1->vertex[0].x = (float)x - (float)model->sizex / 2.f;
+								quad1->vertex[0].y = (float)y - (float)model->sizey / 2.f + 1;
+								quad1->vertex[0].z = (float)z - (float)model->sizez / 2.f;
+								quad1->vertex[3].x = (float)x - (float)model->sizex / 2.f;
+								quad1->vertex[3].y = (float)y - (float)model->sizey / 2.f + 1;
+								quad1->vertex[3].z = (float)z - (float)model->sizez / 2.f - 1;
 								quad1->r = models[c]->palette[models[c]->data[index]][0];
 								quad1->g = models[c]->palette[models[c]->data[index]][1];
 								quad1->b = models[c]->palette[models[c]->data[index]][2];
@@ -1435,12 +1435,12 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 					buildingquad = false;
 					node_t* currentNode = quads.last;
 					quad1 = (polyquad_t*) currentNode->element;
-					quad1->vertex[1].x = x - model->sizex / 2.f;
-					quad1->vertex[1].y = y - model->sizey / 2.f + 1;
-					quad1->vertex[1].z = z - model->sizez / 2.f;
-					quad1->vertex[2].x = x - model->sizex / 2.f;
-					quad1->vertex[2].y = y - model->sizey / 2.f + 1;
-					quad1->vertex[2].z = z - model->sizez / 2.f - 1;
+					quad1->vertex[1].x = (float)x - (float)model->sizex / 2.f;
+					quad1->vertex[1].y = (float)y - (float)model->sizey / 2.f + 1;
+					quad1->vertex[1].z = (float)z - (float)model->sizez / 2.f;
+					quad1->vertex[2].x = (float)x - (float)model->sizex / 2.f;
+					quad1->vertex[2].y = (float)y - (float)model->sizey / 2.f + 1;
+					quad1->vertex[2].z = (float)z - (float)model->sizez / 2.f - 1;
 
 					// optimize quad
 					node_t* node = quads.first;
@@ -1492,12 +1492,12 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 
 							node_t* currentNode = quads.last;
 							quad1 = (polyquad_t*) currentNode->element;
-							quad1->vertex[1].x = x - model->sizex / 2.f;
-							quad1->vertex[1].y = y - model->sizey / 2.f;
-							quad1->vertex[1].z = z - model->sizez / 2.f - 1;
-							quad1->vertex[2].x = x - model->sizex / 2.f;
-							quad1->vertex[2].y = y - model->sizey / 2.f;
-							quad1->vertex[2].z = z - model->sizez / 2.f;
+							quad1->vertex[1].x = (float)x - (float)model->sizex / 2.f;
+							quad1->vertex[1].y = (float)y - (float)model->sizey / 2.f;
+							quad1->vertex[1].z = (float)z - (float)model->sizez / 2.f - 1;
+							quad1->vertex[2].x = (float)x - (float)model->sizex / 2.f;
+							quad1->vertex[2].y = (float)y - (float)model->sizey / 2.f;
+							quad1->vertex[2].z = (float)z - (float)model->sizez / 2.f;
 
 							// optimize quad
 							node_t* node = quads.first;
@@ -1538,12 +1538,12 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 
 								quad1 = (polyquad_t*) calloc(1, sizeof(polyquad_t));
 								quad1->side = 3;
-								quad1->vertex[0].x = x - model->sizex / 2.f;
-								quad1->vertex[0].y = y - model->sizey / 2.f;
-								quad1->vertex[0].z = z - model->sizez / 2.f - 1;
-								quad1->vertex[3].x = x - model->sizex / 2.f;
-								quad1->vertex[3].y = y - model->sizey / 2.f;
-								quad1->vertex[3].z = z - model->sizez / 2.f;
+								quad1->vertex[0].x = (float)x - (float)model->sizex / 2.f;
+								quad1->vertex[0].y = (float)y - (float)model->sizey / 2.f;
+								quad1->vertex[0].z = (float)z - (float)model->sizez / 2.f - 1;
+								quad1->vertex[3].x = (float)x - (float)model->sizex / 2.f;
+								quad1->vertex[3].y = (float)y - (float)model->sizey / 2.f;
+								quad1->vertex[3].z = (float)z - (float)model->sizez / 2.f;
 								quad1->r = models[c]->palette[models[c]->data[index]][0];
 								quad1->g = models[c]->palette[models[c]->data[index]][1];
 								quad1->b = models[c]->palette[models[c]->data[index]][2];
@@ -1563,12 +1563,12 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 					buildingquad = false;
 					node_t* currentNode = quads.last;
 					quad1 = (polyquad_t*) currentNode->element;
-					quad1->vertex[1].x = x - model->sizex / 2.f;
-					quad1->vertex[1].y = y - model->sizey / 2.f;
-					quad1->vertex[1].z = z - model->sizez / 2.f - 1;
-					quad1->vertex[2].x = x - model->sizex / 2.f;
-					quad1->vertex[2].y = y - model->sizey / 2.f;
-					quad1->vertex[2].z = z - model->sizez / 2.f;
+					quad1->vertex[1].x = (float)x - (float)model->sizex / 2.f;
+					quad1->vertex[1].y = (float)y - (float)model->sizey / 2.f;
+					quad1->vertex[1].z = (float)z - (float)model->sizez / 2.f - 1;
+					quad1->vertex[2].x = (float)x - (float)model->sizex / 2.f;
+					quad1->vertex[2].y = (float)y - (float)model->sizey / 2.f;
+					quad1->vertex[2].z = (float)z - (float)model->sizez / 2.f;
 
 					// optimize quad
 					node_t* node = quads.first;
@@ -1620,12 +1620,12 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 
 							node_t* currentNode = quads.last;
 							quad1 = (polyquad_t*) currentNode->element;
-							quad1->vertex[1].x = x - model->sizex / 2.f;
-							quad1->vertex[1].y = y - model->sizey / 2.f;
-							quad1->vertex[1].z = z - model->sizez / 2.f;
-							quad1->vertex[2].x = x - model->sizex / 2.f;
-							quad1->vertex[2].y = y - model->sizey / 2.f + 1;
-							quad1->vertex[2].z = z - model->sizez / 2.f;
+							quad1->vertex[1].x = (float)x - (float)model->sizex / 2.f;
+							quad1->vertex[1].y = (float)y - (float)model->sizey / 2.f;
+							quad1->vertex[1].z = (float)z - (float)model->sizez / 2.f;
+							quad1->vertex[2].x = (float)x - (float)model->sizex / 2.f;
+							quad1->vertex[2].y = (float)y - (float)model->sizey / 2.f + 1;
+							quad1->vertex[2].z = (float)z - (float)model->sizez / 2.f;
 
 							// optimize quad
 							node_t* node = quads.first;
@@ -1666,12 +1666,12 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 
 								quad1 = (polyquad_t*) calloc(1, sizeof(polyquad_t));
 								quad1->side = 4;
-								quad1->vertex[0].x = x - model->sizex / 2.f;
-								quad1->vertex[0].y = y - model->sizey / 2.f;
-								quad1->vertex[0].z = z - model->sizez / 2.f;
-								quad1->vertex[3].x = x - model->sizex / 2.f;
-								quad1->vertex[3].y = y - model->sizey / 2.f + 1;
-								quad1->vertex[3].z = z - model->sizez / 2.f;
+								quad1->vertex[0].x = (float)x - (float)model->sizex / 2.f;
+								quad1->vertex[0].y = (float)y - (float)model->sizey / 2.f;
+								quad1->vertex[0].z = (float)z - (float)model->sizez / 2.f;
+								quad1->vertex[3].x = (float)x - (float)model->sizex / 2.f;
+								quad1->vertex[3].y = (float)y - (float)model->sizey / 2.f + 1;
+								quad1->vertex[3].z = (float)z - (float)model->sizez / 2.f;
 								quad1->r = models[c]->palette[models[c]->data[index]][0];
 								quad1->g = models[c]->palette[models[c]->data[index]][1];
 								quad1->b = models[c]->palette[models[c]->data[index]][2];
@@ -1692,12 +1692,12 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 
 					node_t* currentNode = quads.last;
 					quad1 = (polyquad_t*) currentNode->element;
-					quad1->vertex[1].x = x - model->sizex / 2.f;
-					quad1->vertex[1].y = y - model->sizey / 2.f;
-					quad1->vertex[1].z = z - model->sizez / 2.f;
-					quad1->vertex[2].x = x - model->sizex / 2.f;
-					quad1->vertex[2].y = y - model->sizey / 2.f + 1;
-					quad1->vertex[2].z = z - model->sizez / 2.f;
+					quad1->vertex[1].x = (float)x - (float)model->sizex / 2.f;
+					quad1->vertex[1].y = (float)y - (float)model->sizey / 2.f;
+					quad1->vertex[1].z = (float)z - (float)model->sizez / 2.f;
+					quad1->vertex[2].x = (float)x - (float)model->sizex / 2.f;
+					quad1->vertex[2].y = (float)y - (float)model->sizey / 2.f + 1;
+					quad1->vertex[2].z = (float)z - (float)model->sizez / 2.f;
 
 					// optimize quad
 					node_t* node = quads.first;
@@ -1748,12 +1748,12 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 
 							node_t* currentNode = quads.last;
 							quad1 = (polyquad_t*) currentNode->element;
-							quad1->vertex[1].x = x - model->sizex / 2.f;
-							quad1->vertex[1].y = y - model->sizey / 2.f + 1;
-							quad1->vertex[1].z = z - model->sizez / 2.f - 1;
-							quad1->vertex[2].x = x - model->sizex / 2.f;
-							quad1->vertex[2].y = y - model->sizey / 2.f;
-							quad1->vertex[2].z = z - model->sizez / 2.f - 1;
+							quad1->vertex[1].x = (float)x - (float)model->sizex / 2.f;
+							quad1->vertex[1].y = (float)y - (float)model->sizey / 2.f + 1;
+							quad1->vertex[1].z = (float)z - (float)model->sizez / 2.f - 1;
+							quad1->vertex[2].x = (float)x - (float)model->sizex / 2.f;
+							quad1->vertex[2].y = (float)y - (float)model->sizey / 2.f;
+							quad1->vertex[2].z = (float)z - (float)model->sizez / 2.f - 1;
 
 							// optimize quad
 							node_t* node = quads.first;
@@ -1794,12 +1794,12 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 
 								quad1 = (polyquad_t*) calloc(1, sizeof(polyquad_t));
 								quad1->side = 5;
-								quad1->vertex[0].x = x - model->sizex / 2.f;
-								quad1->vertex[0].y = y - model->sizey / 2.f + 1;
-								quad1->vertex[0].z = z - model->sizez / 2.f - 1;
-								quad1->vertex[3].x = x - model->sizex / 2.f;
-								quad1->vertex[3].y = y - model->sizey / 2.f;
-								quad1->vertex[3].z = z - model->sizez / 2.f - 1;
+								quad1->vertex[0].x = (float)x - (float)model->sizex / 2.f;
+								quad1->vertex[0].y = (float)y - (float)model->sizey / 2.f + 1;
+								quad1->vertex[0].z = (float)z - (float)model->sizez / 2.f - 1;
+								quad1->vertex[3].x = (float)x - (float)model->sizex / 2.f;
+								quad1->vertex[3].y = (float)y - (float)model->sizey / 2.f;
+								quad1->vertex[3].z = (float)z - (float)model->sizez / 2.f - 1;
 								quad1->r = models[c]->palette[models[c]->data[index]][0];
 								quad1->g = models[c]->palette[models[c]->data[index]][1];
 								quad1->b = models[c]->palette[models[c]->data[index]][2];
@@ -1820,12 +1820,12 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 
 					node_t* currentNode = quads.last;
 					quad1 = (polyquad_t*) currentNode->element;
-					quad1->vertex[1].x = x - model->sizex / 2.f;
-					quad1->vertex[1].y = y - model->sizey / 2.f + 1;
-					quad1->vertex[1].z = z - model->sizez / 2.f - 1;
-					quad1->vertex[2].x = x - model->sizex / 2.f;
-					quad1->vertex[2].y = y - model->sizey / 2.f;
-					quad1->vertex[2].z = z - model->sizez / 2.f - 1;
+					quad1->vertex[1].x = (float)x - (float)model->sizex / 2.f;
+					quad1->vertex[1].y = (float)y - (float)model->sizey / 2.f + 1;
+					quad1->vertex[1].z = (float)z - (float)model->sizez / 2.f - 1;
+					quad1->vertex[2].x = (float)x - (float)model->sizex / 2.f;
+					quad1->vertex[2].y = (float)y - (float)model->sizey / 2.f;
+					quad1->vertex[2].z = (float)z - (float)model->sizez / 2.f - 1;
 
 					// optimize quad
 					node_t* node = quads.first;
