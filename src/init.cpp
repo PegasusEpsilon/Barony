@@ -1098,17 +1098,9 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 					newcolor = models[c]->data[index];
 					if ( buildingquad == true )
 					{
-						bool doit = false;
-						if ( newcolor != oldcolor )
-						{
-							doit = true;
-						}
-						else if ( x < models[c]->sizex - 1 )
-							if ( models[c]->data[index + indexdown[0]] < 255 )
-							{
-								doit = true;
-							}
-						if ( doit )
+						if ( newcolor != oldcolor
+							|| ( x < models[c]->sizex - 1
+							&& models[c]->data[index + indexdown[0]] < 255 ) )
 						{
 							// add the last two vertices to the previous quad
 							buildingquad = false;
@@ -1152,16 +1144,7 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 					{
 						if ( newcolor != 255 )
 						{
-							bool doit = false;
-							if ( x == models[c]->sizex - 1 )
-							{
-								doit = true;
-							}
-							else if ( models[c]->data[index + indexdown[0]] == 255 )
-							{
-								doit = true;
-							}
-							if ( doit )
+							if ( x == models[c]->sizex - 1 || 255 == models[c]->data[index + indexdown[0]] )
 							{
 								// start building a new quad
 								buildingquad = true;
@@ -1244,17 +1227,8 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 					newcolor = models[c]->data[index];
 					if ( buildingquad == true )
 					{
-						bool doit = false;
-						if ( newcolor != oldcolor )
-						{
-							doit = true;
-						}
-						else if ( x > 0 )
-							if ( models[c]->data[index - indexdown[0]] < 255 )
-							{
-								doit = true;
-							}
-						if ( doit )
+						if ( newcolor != oldcolor
+							|| ( 0 < x && 255 > models[c]->data[index - indexdown[0]] ) )
 						{
 							// add the last two vertices to the previous quad
 							buildingquad = false;
@@ -1298,16 +1272,7 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 					{
 						if ( newcolor != 255 )
 						{
-							bool doit = false;
-							if ( x == 0 )
-							{
-								doit = true;
-							}
-							else if ( models[c]->data[index - indexdown[0]] == 255 )
-							{
-								doit = true;
-							}
-							if ( doit )
+							if ( 0 == x || 255 == models[c]->data[index - indexdown[0]] )
 							{
 								// start building a new quad
 								buildingquad = true;
@@ -1390,17 +1355,9 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 					newcolor = models[c]->data[index];
 					if ( buildingquad == true )
 					{
-						bool doit = false;
-						if ( newcolor != oldcolor )
-						{
-							doit = true;
-						}
-						else if ( y < models[c]->sizey - 1 )
-							if ( models[c]->data[index + indexdown[1]] < 255 )
-							{
-								doit = true;
-							}
-						if ( doit )
+						if ( newcolor != oldcolor
+							|| ( y < models[c]->sizey - 1
+							&& 255 > models[c]->data[index + indexdown[1]] ) )
 						{
 							// add the last two vertices to the previous quad
 							buildingquad = false;
@@ -1444,16 +1401,7 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 					{
 						if ( newcolor != 255 )
 						{
-							bool doit = false;
-							if ( y == models[c]->sizey - 1 )
-							{
-								doit = true;
-							}
-							else if ( models[c]->data[index + indexdown[1]] == 255 )
-							{
-								doit = true;
-							}
-							if ( doit )
+							if ( y == models[c]->sizey - 1 || 255 == models[c]->data[index + indexdown[1]] )
 							{
 								// start building a new quad
 								buildingquad = true;
@@ -1535,17 +1483,9 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 					newcolor = models[c]->data[index];
 					if ( buildingquad == true )
 					{
-						bool doit = false;
-						if ( newcolor != oldcolor )
-						{
-							doit = true;
-						}
-						else if ( y > 0 )
-							if ( models[c]->data[index - indexdown[1]] < 255 )
-							{
-								doit = true;
-							}
-						if ( doit )
+						if ( newcolor != oldcolor
+							|| ( 0 < y
+							&& 255 > models[c]->data[index - indexdown[1]] ) )
 						{
 							// add the last two vertices to the previous quad
 							buildingquad = false;
@@ -1589,16 +1529,7 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 					{
 						if ( newcolor != 255 )
 						{
-							bool doit = false;
-							if ( y == 0 )
-							{
-								doit = true;
-							}
-							else if ( models[c]->data[index - indexdown[1]] == 255 )
-							{
-								doit = true;
-							}
-							if ( doit )
+							if ( 0 == y || 255 == models[c]->data[index - indexdown[1]] )
 							{
 								// start building a new quad
 								buildingquad = true;
@@ -1680,17 +1611,9 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 					newcolor = models[c]->data[index];
 					if ( buildingquad == true )
 					{
-						bool doit = false;
-						if ( newcolor != oldcolor )
-						{
-							doit = true;
-						}
-						else if ( z < models[c]->sizez - 1 )
-							if ( models[c]->data[index + indexdown[2]] < 255 )
-							{
-								doit = true;
-							}
-						if ( doit )
+						if ( newcolor != oldcolor
+							|| ( z < models[c]->sizez - 1
+							&& 255 > models[c]->data[index + indexdown[2]] ) )
 						{
 							// add the last two vertices to the previous quad
 							buildingquad = false;
@@ -1734,16 +1657,7 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 					{
 						if ( newcolor != 255 )
 						{
-							bool doit = false;
-							if ( z == models[c]->sizez - 1 )
-							{
-								doit = true;
-							}
-							else if ( models[c]->data[index + indexdown[2]] == 255 )
-							{
-								doit = true;
-							}
-							if ( doit )
+							if ( z == models[c]->sizez - 1 || 255 == models[c]->data[index + indexdown[2]] )
 							{
 								// start building a new quad
 								buildingquad = true;
@@ -1826,17 +1740,8 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 					newcolor = models[c]->data[index];
 					if ( buildingquad == true )
 					{
-						bool doit = false;
-						if ( newcolor != oldcolor )
-						{
-							doit = true;
-						}
-						else if ( z > 0 )
-							if ( models[c]->data[index - indexdown[2]] < 255 )
-							{
-								doit = true;
-							}
-						if ( doit )
+						if ( newcolor != oldcolor
+							|| ( 0 < z && 255 > models[c]->data[index - indexdown[2]] ) )
 						{
 							// add the last two vertices to the previous quad
 							buildingquad = false;
@@ -1880,16 +1785,7 @@ void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 					{
 						if ( newcolor != 255 )
 						{
-							bool doit = false;
-							if ( z == 0 )
-							{
-								doit = true;
-							}
-							else if ( models[c]->data[index - indexdown[2]] == 255 )
-							{
-								doit = true;
-							}
-							if ( doit )
+							if ( 0 == z || 255 == models[c]->data[index - indexdown[2]] )
 							{
 								// start building a new quad
 								buildingquad = true;
