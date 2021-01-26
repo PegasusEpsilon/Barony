@@ -2390,7 +2390,7 @@ int deinitApp()
 #endif
 
 
-	int numLogFilesToKeepInArchive = 30;
+	unsigned numLogFilesToKeepInArchive = 30;
 	// archive logfiles.
 	char lognamewithTimestamp[128];
 	std::time_t timeNow = std::time(nullptr);
@@ -2436,7 +2436,7 @@ int deinitApp()
 //#endif
 			if ( tm )
 			{
-				int timeDifference = std::difftime(timeNow, mktime(tm));
+				double timeDifference = std::difftime(timeNow, mktime(tm));
 				sortedLogFiles.push_back(std::make_pair(timeDifference, file));
 			}
 		}
