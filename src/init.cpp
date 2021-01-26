@@ -988,7 +988,7 @@ void freeLanguages()
 
 -------------------------------------------------------------------------------*/
 
-void generatePolyModels(int start, int end, bool forceCacheRebuild)
+void generatePolyModels(unsigned start, unsigned end, bool forceCacheRebuild)
 {
 	Sint32 x, y, z;
 	Uint32 index, indexdown[3];
