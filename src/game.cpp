@@ -3735,7 +3735,7 @@ int main(int argc, char** argv)
 		}
 
 		// initialize engine
-		if ( (c = initApp("Barony", fullscreen)) )
+		if ( (c = initApp("Barony")) )
 		{
 			printlog("Critical error: %d\n", c);
 #ifdef STEAMWORKS

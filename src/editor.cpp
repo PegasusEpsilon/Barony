@@ -1486,7 +1486,7 @@ int main(int argc, char** argv)
 	// initialize
 	useModelCache = true;
 	verticalSync = true;
-	if ( (x = initApp("Barony Editor", fullscreen)) )
+	if ( (x = initApp("Barony Editor")) )
 	{
 		printlog("Critical error: %d\n", x);
 #ifdef STEAMWORKS

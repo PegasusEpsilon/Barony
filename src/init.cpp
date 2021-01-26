@@ -69,7 +69,7 @@ GLuint fbo_ren = 0;
 FILE* logfile = nullptr;
 bool steam_init = false;
 
-int initApp(char const * const title, int fullscreen)
+int initApp(const char *const title)
 {
 	char name[128];
 	File* fp;

@@ -10,7 +10,7 @@
 -------------------------------------------------------------------------------*/
 #pragma once
 
-int initApp(char const * const title, int fullscreen);
+int initApp(const char *const title);
 int deinitApp();
 bool initVideo();
 bool changeVideoMode();
