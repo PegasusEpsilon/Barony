@@ -680,9 +680,9 @@ int initApp(const char *const title)
 		//TODO: set sound volume? Or otherwise handle sound volume.
 	}
 	FileIO::close(fp);
-	OPENAL_ChannelGroup_SetVolume(sound_group, sfxvolume / 128.f);
-	OPENAL_ChannelGroup_SetVolume(soundAmbient_group, sfxAmbientVolume / 128.f);
-	OPENAL_ChannelGroup_SetVolume(soundEnvironment_group, sfxEnvironmentVolume / 128.f);
+	OPENAL_ChannelGroup_SetVolume(sound_group, (float)(sfxvolume / 128));
+	OPENAL_ChannelGroup_SetVolume(soundAmbient_group, (float)(sfxAmbientVolume / 128));
+	OPENAL_ChannelGroup_SetVolume(soundEnvironment_group, (float)(sfxEnvironmentVolume / 128));
 	//FMOD_System_Set3DSettings(fmod_system, 1.0, 2.0, 1.0); // This on is hardcoded, I've been lazy here'
 #endif // defined USE_OPENAL
 	return 0;
@@ -2045,9 +2045,9 @@ void generateVBOs(int start, int end)
 				int data_index = i * 9 + vert_index * 3;
 				const vertex_t *vert = &face->vertex[vert_index];
 
-				points[data_index] = vert->x;
-				points[data_index + 1] = -vert->z;
-				points[data_index + 2] = vert->y;
+				points[data_index    ] = (float)vert->x;
+				points[data_index + 1] = (float)-vert->z;
+				points[data_index + 2] = (float)vert->y;
 
 				colors[data_index] = face->r / 255.f;
 				colors[data_index + 1] = face->g / 255.f;
@@ -2711,7 +2711,7 @@ bool initVideo()
 		SDL_GL_SetSwapInterval(0);
 	}
 #ifndef NINTENDO
-	if ( SDL_SetWindowBrightness(screen, vidgamma) < 0 )
+	if ( SDL_SetWindowBrightness(screen, (float)vidgamma) < 0 )
 	{
 		printlog("warning: failed to change gamma setting:\n%s\n", SDL_GetError());
 		return true;
