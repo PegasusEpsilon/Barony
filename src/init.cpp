@@ -73,7 +73,6 @@ int initApp(const char *const title)
 {
 	char name[128];
 	File* fp;
-	Uint32 x, c;
 
 	// open log file
 	if ( !logfile )
@@ -97,7 +96,7 @@ int initApp(const char *const title)
 	light_l.last = NULL;
 	entitiesdeleted.first = NULL;
 	entitiesdeleted.last = NULL;
-	for ( c = 0; c < HASH_SIZE; c++ )
+	for ( unsigned c = 0; c < HASH_SIZE; c++ )
 	{
 		ttfTextHash[c].first = NULL;
 		ttfTextHash[c].last = NULL;
@@ -376,7 +375,7 @@ int initApp(const char *const title)
 	//vaoid = (GLuint *) malloc(MAXBUFFERS*sizeof(GLuint));
 	//vboid = (GLuint *) malloc(MAXBUFFERS*sizeof(GLuint));
 	allsurfaces = (SDL_Surface**) malloc(sizeof(SDL_Surface*)*MAXTEXTURES);
-	for ( c = 0; c < MAXTEXTURES; c++ )
+	for ( unsigned c = 0; c < MAXTEXTURES; c++ )
 	{
 		allsurfaces[c] = NULL;
 	}
@@ -473,7 +472,7 @@ int initApp(const char *const title)
 	}
 	sprites = (SDL_Surface**) malloc(sizeof(SDL_Surface*)*numsprites);
 	fp = openDataFile("images/sprites.txt", "r");
-	for ( c = 0; !fp->eof(); c++ )
+	for ( unsigned c = 0; !fp->eof(); c++ )
 	{
 		fp->gets2(name, 128);
 		sprites[c] = loadImage(name);
@@ -518,7 +517,7 @@ int initApp(const char *const title)
 	}
 	models = (voxel_t**) malloc(sizeof(voxel_t*)*nummodels);
 	fp = openDataFile(modelsDirectory.c_str(), "r");
-	for ( c = 0; !fp->eof(); c++ )
+	for ( unsigned c = 0; !fp->eof(); c++ )
 	{
 		fp->gets2(name, 128);
 		models[c] = loadVoxel(name);
@@ -569,7 +568,7 @@ int initApp(const char *const title)
 	lavatiles = (bool*) malloc(sizeof(bool) * numtiles);
 	swimmingtiles = (bool*)malloc(sizeof(bool) * numtiles);
 	fp = openDataFile(tilesDirectory.c_str(), "r");
-	for ( c = 0; !fp->eof(); c++ )
+	for ( int c = 0; !fp->eof(); c++ )
 	{
 		fp->gets2(name, 128);
 		tiles[c] = loadImage(name);
@@ -578,7 +577,7 @@ int initApp(const char *const title)
 		swimmingtiles[c] = false;
 		if ( tiles[c] != NULL )
 		{
-			for (x = 0; x < strlen(name); x++)
+			for ( size_t x = 0; x < strlen(name); x++ )
 			{
 				if ( name[x] >= '0' && name[x] <= '9' )
 				{
@@ -673,7 +672,8 @@ int initApp(const char *const title)
 		return 10;
 	}
 	sounds = (OPENAL_BUFFER**) malloc(sizeof(OPENAL_BUFFER*)*numsounds);
-	for (c = 0, fp = openDataFile(soundsDirectory.c_str(), "r"); fp->gets2(name, 128); ++c)
+	fp = openDataFile(soundsDirectory.c_str(), "r");
+	for ( int c = 0; fp->gets2(name, 128); c++ )
 	{
 		//TODO: Might need to malloc the sounds[c]->sound
 		OPENAL_CreateSound(name, true, &sounds[c]);
@@ -700,7 +700,6 @@ int loadLanguage(char const * const lang)
 {
 	char filename[128] = { 0 };
 	File* fp;
-	int c;
 
 	// open log file
 	if ( !logfile )
@@ -831,7 +830,7 @@ int loadLanguage(char const * const lang)
 	language = (char**) calloc(NUMLANGENTRIES, sizeof(char*));
 
 	// Allocate an emptry string for each possible language entry
-	for (c = 0; c < NUMLANGENTRIES; c++)
+	for ( unsigned c = 0; c < NUMLANGENTRIES; c++ )
 	{
 		language[c] = (char*)calloc(1, sizeof(char));
 	}
@@ -993,7 +992,6 @@ void freeLanguages()
 void generatePolyModels(int start, int end, bool forceCacheRebuild)
 {
 	Sint32 x, y, z;
-	Sint32 c, i;
 	Uint32 index, indexdown[3];
 	Uint8 newcolor, oldcolor;
 	bool buildingquad;
@@ -1056,7 +1054,7 @@ void generatePolyModels(int start, int end, bool forceCacheRebuild)
 		}
 	}
 
-	for ( c = start; c < end; ++c )
+	for ( unsigned c = start; c < end; ++c )
 	{
 		char loadText[128];
 		snprintf(loadText, 127, language[745], c, nummodels);
@@ -1126,8 +1124,8 @@ void generatePolyModels(int start, int end, bool forceCacheRebuild)
 							quad1->vertex[2].z = z - model->sizez / 2.f;
 
 							// optimize quad
-							node_t* node;
-							for ( i = 0, node = quads.first; i < numquads - 1; i++, node = node->next )
+							node_t* node = quads.first;
+							for ( unsigned i = 0; i < numquads - 1; i++, node = node->next )
 							{
 								quad2 = (polyquad_t*)node->element;
 								if ( quad1->side == quad2->side )
@@ -1207,8 +1205,8 @@ void generatePolyModels(int start, int end, bool forceCacheRebuild)
 					quad1->vertex[2].z = z - model->sizez / 2.f;
 
 					// optimize quad
-					node_t* node;
-					for ( i = 0, node = quads.first; i < numquads - 1; i++, node = node->next )
+					node_t* node = quads.first;
+					for ( unsigned i = 0; i < numquads - 1; i++, node = node->next )
 					{
 						quad2 = (polyquad_t*)node->element;
 						if ( quad1->side == quad2->side )
@@ -1272,8 +1270,8 @@ void generatePolyModels(int start, int end, bool forceCacheRebuild)
 							quad1->vertex[2].z = z - model->sizez / 2.f - 1;
 
 							// optimize quad
-							node_t* node;
-							for ( i = 0, node = quads.first; i < numquads - 1; i++, node = node->next )
+							node_t* node = quads.first;
+							for ( unsigned i = 0; i < numquads - 1; i++, node = node->next )
 							{
 								quad2 = (polyquad_t*)node->element;
 								if ( quad1->side == quad2->side )
@@ -1353,8 +1351,8 @@ void generatePolyModels(int start, int end, bool forceCacheRebuild)
 					quad1->vertex[2].z = z - model->sizez / 2.f - 1;
 
 					// optimize quad
-					node_t* node;
-					for ( i = 0, node = quads.first; i < numquads - 1; i++, node = node->next )
+					node_t* node = quads.first;
+					for ( unsigned i = 0; i < numquads - 1; i++, node = node->next )
 					{
 						quad2 = (polyquad_t*)node->element;
 						if ( quad1->side == quad2->side )
@@ -1418,8 +1416,8 @@ void generatePolyModels(int start, int end, bool forceCacheRebuild)
 							quad1->vertex[2].z = z - model->sizez / 2.f - 1;
 
 							// optimize quad
-							node_t* node;
-							for ( i = 0, node = quads.first; i < numquads - 1; i++, node = node->next )
+							node_t* node = quads.first;
+							for ( unsigned i = 0; i < numquads - 1; i++, node = node->next )
 							{
 								quad2 = (polyquad_t*)node->element;
 								if ( quad1->side == quad2->side )
@@ -1498,8 +1496,8 @@ void generatePolyModels(int start, int end, bool forceCacheRebuild)
 					quad1->vertex[2].z = z - model->sizez / 2.f - 1;
 
 					// optimize quad
-					node_t* node;
-					for ( i = 0, node = quads.first; i < numquads - 1; i++, node = node->next )
+					node_t* node = quads.first;
+					for ( unsigned i = 0; i < numquads - 1; i++, node = node->next )
 					{
 						quad2 = (polyquad_t*)node->element;
 						if ( quad1->side == quad2->side )
@@ -1563,8 +1561,8 @@ void generatePolyModels(int start, int end, bool forceCacheRebuild)
 							quad1->vertex[2].z = z - model->sizez / 2.f;
 
 							// optimize quad
-							node_t* node;
-							for ( i = 0, node = quads.first; i < numquads - 1; i++, node = node->next )
+							node_t* node = quads.first;
+							for ( unsigned i = 0; i < numquads - 1; i++, node = node->next )
 							{
 								quad2 = (polyquad_t*)node->element;
 								if ( quad1->side == quad2->side )
@@ -1643,8 +1641,8 @@ void generatePolyModels(int start, int end, bool forceCacheRebuild)
 					quad1->vertex[2].z = z - model->sizez / 2.f;
 
 					// optimize quad
-					node_t* node;
-					for ( i = 0, node = quads.first; i < numquads - 1; i++, node = node->next )
+					node_t* node = quads.first;
+					for ( unsigned i = 0; i < numquads - 1; i++, node = node->next )
 					{
 						quad2 = (polyquad_t*)node->element;
 						if ( quad1->side == quad2->side )
@@ -1708,8 +1706,8 @@ void generatePolyModels(int start, int end, bool forceCacheRebuild)
 							quad1->vertex[2].z = z - model->sizez / 2.f;
 
 							// optimize quad
-							node_t* node;
-							for ( i = 0, node = quads.first; i < numquads - 1; i++, node = node->next )
+							node_t* node = quads.first;
+							for ( unsigned i = 0; i < numquads - 1; i++, node = node->next )
 							{
 								quad2 = (polyquad_t*)node->element;
 								if ( quad1->side == quad2->side )
@@ -1789,8 +1787,8 @@ void generatePolyModels(int start, int end, bool forceCacheRebuild)
 					quad1->vertex[2].z = z - model->sizez / 2.f;
 
 					// optimize quad
-					node_t* node;
-					for ( i = 0, node = quads.first; i < numquads - 1; i++, node = node->next )
+					node_t* node = quads.first;
+					for ( unsigned i = 0; i < numquads - 1; i++, node = node->next )
 					{
 						quad2 = (polyquad_t*)node->element;
 						if ( quad1->side == quad2->side )
@@ -1854,8 +1852,8 @@ void generatePolyModels(int start, int end, bool forceCacheRebuild)
 							quad1->vertex[2].z = z - model->sizez / 2.f - 1;
 
 							// optimize quad
-							node_t* node;
-							for ( i = 0, node = quads.first; i < numquads - 1; i++, node = node->next )
+							node_t* node = quads.first;
+							for ( unsigned i = 0; i < numquads - 1; i++, node = node->next )
 							{
 								quad2 = (polyquad_t*)node->element;
 								if ( quad1->side == quad2->side )
@@ -1935,8 +1933,8 @@ void generatePolyModels(int start, int end, bool forceCacheRebuild)
 					quad1->vertex[2].z = z - model->sizez / 2.f - 1;
 
 					// optimize quad
-					node_t* node;
-					for ( i = 0, node = quads.first; i < numquads - 1; i++, node = node->next )
+					node_t* node = quads.first;
+					for ( unsigned i = 0; i < numquads - 1; i++, node = node->next )
 					{
 						quad2 = (polyquad_t*)node->element;
 						if ( quad1->side == quad2->side )
@@ -1964,7 +1962,7 @@ void generatePolyModels(int start, int end, bool forceCacheRebuild)
 
 		// translate quads into triangles
 		polymodels[c].faces = (polytriangle_t*) malloc(sizeof(polytriangle_t) * polymodels[c].numfaces);
-		for ( i = 0; i < polymodels[c].numfaces; i++ )
+		for ( unsigned i = 0; i < polymodels[c].numfaces; i++ )
 		{
 			node_t* node = list_Node(&quads, i / 2);
 			polyquad_t* quad = (polyquad_t*)node->element;
@@ -2039,7 +2037,7 @@ void generateVBOs(int start, int end)
 		std::unique_ptr<GLfloat[]> points(new GLfloat[9 * model->numfaces]);
 		std::unique_ptr<GLfloat[]> colors(new GLfloat[9 * model->numfaces]);
 		std::unique_ptr<GLfloat[]> colors_shifted(new GLfloat[9 * model->numfaces]);
-		for ( int i = 0; i < model->numfaces; i++ )
+		for ( unsigned i = 0; i < model->numfaces; i++ )
 		{
 			const polytriangle_t *face = &model->faces[i];
 			for (int vert_index = 0; vert_index < 3; vert_index++)
@@ -2739,7 +2737,6 @@ bool changeVideoMode()
 #ifdef PANDORA
 	GO_InitFBO();
 #else
-	int c;
 
 	// delete old texture names (they're going away anyway)
 	glDeleteTextures(MAXTEXTURES, texid);
@@ -2747,7 +2744,7 @@ bool changeVideoMode()
 	// delete vertex data
 	if ( !disablevbos )
 	{
-		for ( c = 0; c < nummodels; c++ )
+		for ( unsigned c = 0; c < nummodels; c++ )
 		{
 			SDL_glDeleteBuffers(1, &polymodels[c].vbo);
 			SDL_glDeleteBuffers(1, &polymodels[c].colors);
@@ -2791,7 +2788,7 @@ bool changeVideoMode()
 
 	// now reload all textures
 	glGenTextures(MAXTEXTURES, texid);
-	for ( c = 1; c < imgref; c++ )
+	for ( unsigned c = 1; c < imgref; c++ )
 	{
 		glLoadTexture(allsurfaces[c], c);
 	}
