@@ -698,7 +698,6 @@ int initApp(const char *const title)
 
 int loadLanguage(char const * const lang)
 {
-	char filename[128] = { 0 };
 	File* fp;
 
 	// open log file
